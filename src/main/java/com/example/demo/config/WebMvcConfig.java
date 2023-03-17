@@ -9,8 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebMvcConfig implements WebMvcConfigurer {
 
     @Override
-    public void configurePathMatch(PathMatchConfigurer configurer) {
-        configurer.addPathPrefix("apis", HandlerTypePredicate.forBasePackage("com.example.demo"));
-//        configurer.addPathPrefix("v1", HandlerTypePredicate.forBasePackage("com.example.demo.controller1"));
+    public void configurePathMatch(PathMatchConfigurer configure) {
+        configure.addPathPrefix("apis", HandlerTypePredicate.forBasePackage("com.example.demo"));
     }
 }
