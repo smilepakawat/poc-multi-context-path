@@ -10,6 +10,10 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void configurePathMatch(PathMatchConfigurer configure) {
-        configure.addPathPrefix("apis", HandlerTypePredicate.forBasePackage("com.example.demo"));
+        configure.addPathPrefix("v1", HandlerTypePredicate.forBasePackage(
+                "com.example.demo.controller1.smile"));
+        configure.addPathPrefix("apis", HandlerTypePredicate.forBasePackage(
+                "com.example.demo.controller1",
+                "com.example.demo.controller2"));
     }
 }
