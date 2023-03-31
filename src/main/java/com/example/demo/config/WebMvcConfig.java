@@ -1,5 +1,7 @@
 package com.example.demo.config;
 
+import com.example.demo.controller1.smile.helloworldsmile;
+import com.example.demo.controller1.smile.helloworldsmile2;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.HandlerTypePredicate;
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
@@ -10,10 +12,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void configurePathMatch(PathMatchConfigurer configure) {
-        configure.addPathPrefix("v1", HandlerTypePredicate.forBasePackage(
-                "com.example.demo.controller1.smile"));
-        configure.addPathPrefix("apis", HandlerTypePredicate.forBasePackage(
-                "com.example.demo.controller1",
-                "com.example.demo.controller2"));
+        configure.addPathPrefix("v1", HandlerTypePredicate.forAssignableType(helloworldsmile.class));
+        configure.addPathPrefix("apis", HandlerTypePredicate.forBasePackage("com.example.demo"));
     }
 }
